@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.eduardo.TabbedListProject.taskCreationActivity">
+
+
+    <item android:id="@+id/comfirmationButton"
+        android:icon="@drawable/comfirmation_task"
+        android:title="comfirm task "
+        android:titleCondensed="confirm button"
+        android:orderInCategory="1"
+        app:showAsAction="ifRoom" />
+
+
+    <item android:id="@+id/denyButton"
+        android:icon="@drawable/deny_task"
+        android:title="deny task "
+        android:titleCondensed="deny button"
+        android:orderInCategory="2"
+        app:showAsAction="ifRoom" />
+
+</menu>

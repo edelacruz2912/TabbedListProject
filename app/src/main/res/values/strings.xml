@@ -1,0 +1,33 @@
+<resources>
+    <string name="app_name">TabbedListProject</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="tab_label1">Busines</string>
+    <string name="tab_label2">Personal</string>
+
+    <!--for spinner for the create task activity-->
+
+    <string-array name = "options">
+
+        <item>Buseness</item>
+        <item>Personal</item>
+
+    </string-array>
+
+    <!--listView inside del fragment-->
+    <string-array name="Planets">
+        <item>Sun</item>
+        <item>Mercury</item>
+        <item>Venus</item>
+        <item>Earth</item>
+        <item>Mars</item>
+        <item>Jupiter</item>
+        <item>Saturn</item>
+        <item>Uranus</item>
+        <item>Neptune</item>
+    </string-array>
+
+
+
+</resources>

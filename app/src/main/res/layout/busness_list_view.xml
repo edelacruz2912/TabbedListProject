@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+   <RelativeLayout
+       android:layout_height="match_parent"
+       android:layout_width="match_parent">
+
+
+
+
+      <CheckBox
+          android:id="@+id/businessCheckBox"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_alignParentLeft="true"
+          android:layout_alignParentStart="true"
+          android:layout_alignParentTop="true"
+          android:layout_marginLeft="17dp"
+          android:layout_marginStart="17dp"
+          android:layout_marginTop="19dp" />
+
+      <TextView
+          android:id="@+id/bTaskTitleId"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_alignTop="@+id/businessCheckBox"
+          android:layout_marginLeft="22dp"
+          android:layout_marginStart="22dp"
+          android:layout_toEndOf="@+id/businessCheckBox"
+          android:layout_toRightOf="@+id/businessCheckBox"
+          android:text="lord"
+          android:textColor="@android:color/black"
+          android:textSize="18sp"
+          android:textStyle="bold" />
+
+      <TextView
+          android:id="@+id/businessTaskNoteId"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:layout_alignLeft="@+id/bTaskTitleId"
+          android:layout_alignStart="@+id/bTaskTitleId"
+          android:layout_below="@+id/bTaskTitleId"
+          android:paddingBottom="7dp"
+          android:text="hope it works"
+          android:textColor="@android:color/black" />
+   </RelativeLayout>
+
+
+</LinearLayout>
