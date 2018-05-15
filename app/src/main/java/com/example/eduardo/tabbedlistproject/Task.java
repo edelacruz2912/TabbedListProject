@@ -14,6 +14,7 @@ public class Task {
     private String titleOfTask;
     private String noteOfTask;
     static ArrayList<Task> task;
+    static int index;
 
     public Task(String taskName, String notes)
     {
@@ -47,20 +48,20 @@ public class Task {
     }
 
 
-    public static ArrayList<Task> getTask(Task x) {
+    public static ArrayList<Task> getTask() {
 
         /*CREATING THE INTENT TO RECIEVE DATA FROM BUSINESS and populating The data for business Tab*/
         task = new ArrayList<Task>();
         Log.d("getTask Method"  , "get Task Method executed Saved it to list" );
-
-        task.add(new Task("Harry", "San Diego"));
-        task.add(new Task("Marla", "San Francisco"));
-        task.add(new Task("Sarah", "San Marco"));
-        task.add(new Task("NewData0", "motnro porque"));
-        task.add(new Task("yo soy un loco ", "motnro porque"));
+        index = index + 1 ;
+//        task.add(new Task("Harry", "San Diego"));
+//        task.add(new Task("Marla", "San Francisco"));
+//        task.add(new Task("Sarah", "San Marco"));
+//        task.add(new Task("NewData0", "motnro porque"));
+//        task.add(new Task("yo soy un loco ", "motnro porque"));
       // Log.d("im hereeee"  , x.toString() );
 
-        task.add(x);
+        //task.add(x);
 
 
         return task;

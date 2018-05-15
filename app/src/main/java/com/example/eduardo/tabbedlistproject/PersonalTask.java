@@ -45,23 +45,23 @@ public class PersonalTask {
         }
 
 
-    public static ArrayList<PersonalTask> getPersonalTask(PersonalTask x) {
+    public static ArrayList<PersonalTask> getPersonalTask() {
 
         /*CREATING THE INTENT TO RECIEVE DATA FROM BUSINESS and populating The data for business Tab*/
         taskPersonal = new ArrayList<PersonalTask>();
         Log.d("getTask Method"  , "get Task Method executed Saved it to list" );
 
-        taskPersonal.add(new PersonalTask("Harry", "San Diego"));
-        taskPersonal.add(new PersonalTask("Marla", "San Francisco"));
-        taskPersonal.add(new PersonalTask("Sarah", "San Marco"));
-        taskPersonal.add(new PersonalTask("NewData0", "motnro porque"));
-        taskPersonal.add(new PersonalTask("Harry", "San Diego"));
-        taskPersonal.add(new PersonalTask("Marla", "San Francisco"));
-        taskPersonal.add(new PersonalTask("Sarah", "San Marco"));
-        taskPersonal.add(new PersonalTask("NewData0", "motnro porque"));
+//        taskPersonal.add(new PersonalTask("Harry", "San Diego"));
+//        taskPersonal.add(new PersonalTask("Marla", "San Francisco"));
+//        taskPersonal.add(new PersonalTask("Sarah", "San Marco"));
+//        taskPersonal.add(new PersonalTask("NewData0", "motnro porque"));
+//        taskPersonal.add(new PersonalTask("Harry", "San Diego"));
+//        taskPersonal.add(new PersonalTask("Marla", "San Francisco"));
+//        taskPersonal.add(new PersonalTask("Sarah", "San Marco"));
+//        taskPersonal.add(new PersonalTask("NewData0", "motnro porque"));
             // Log.d("im hereeee"  , x.toString() );
 
-        taskPersonal.add(x);
+//        taskPersonal.add(x);
 
 
         return taskPersonal;

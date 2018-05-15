@@ -3,6 +3,7 @@ package com.example.eduardo.tabbedlistproject;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,7 +24,26 @@ public class PersonalCustomTasksAdapter extends ArrayAdapter <PersonalTask> {
 
     /*FIXING THE CHECKBOX BUTTON*/
 
+    //to know whether the checkBox was clicked
+    Boolean isElementCheck;
+
+
     CheckBox personalCheckBox ;
+
+    public PersonalTask getPersonalElementTobeErase() {
+        return personalElementTobeErase;
+    }
+
+    private static final String TAG = "PersonalCustomTasksAdap";
+
+    ///To know the position for the element to be deleted
+    int positionPersonal;
+
+
+    //THE OBJECT TO BE ERASE WHEN YOU CLICK ON GARBAGE ICON
+    PersonalTask personalElementTobeErase;
+
+
 
 
     public PersonalCustomTasksAdapter(Context context, ArrayList<PersonalTask> personal_tasks)
@@ -32,6 +52,17 @@ public class PersonalCustomTasksAdapter extends ArrayAdapter <PersonalTask> {
         this.personalContext = context;
 
 
+    }
+
+
+
+
+    public boolean isPersonalElementCheck() {
+        return isElementCheck;
+    }
+
+    public int getPositionPersonal() {
+        return positionPersonal;
     }
 
     @Override
@@ -60,13 +91,18 @@ public class PersonalCustomTasksAdapter extends ArrayAdapter <PersonalTask> {
             @Override
             public void onCheckedChanged(CompoundButton buttonButtonPersonal, boolean isCheckedPersonal) {
 
-
+                isElementCheck = isCheckedPersonal;
 
                 //take the selected element and send it to the method that gets triggered when garbage can get executed
                 if(isCheckedPersonal)
                 {
+                    ///TESTING
+                    positionPersonal = (Integer) buttonButtonPersonal.getTag();///TO DELETE WITH THE GARBAGE ICON
+                    personalElementTobeErase = getItem(positionPersonal);///TO DELETE WITH THE GARBAGE ICON
 
-                    int positionPersonal = (Integer) buttonButtonPersonal.getTag();
+                    notifyDataSetChanged();
+                    Log.d(TAG, "onCheckedChanged: deleting from oncheckChanged from PersonalCustomerTaskAdapter");
+                    /*THE CODE BELOW WORKS TO DELETE AN ELEMENT USING THE CHECKBOX*/
 
                     PersonalTask personalTask = getItem(positionPersonal);
                     PersonalTask.removePersonalTask(personalTask);
@@ -89,4 +125,6 @@ public class PersonalCustomTasksAdapter extends ArrayAdapter <PersonalTask> {
 
         return convertView;
     }
+
+
 }

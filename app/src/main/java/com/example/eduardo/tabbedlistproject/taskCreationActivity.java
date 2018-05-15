@@ -14,6 +14,7 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 import static com.example.eduardo.tabbedlistproject.Task.task;
@@ -137,12 +138,15 @@ public class taskCreationActivity extends AppCompatActivity implements AdapterVi
                         Log.d("taskT", " " + taskT);
 
                         Log.d("taskN ", " " + taskN);
-                        //Task.task.add(new Task(taskT,taskN));
-                        //Task x = new Task(taskT,taskN);
-                        //x.setTask(taskT,taskN);
-                        //task = new ArrayList<Task>();
-                        task.add(new Task(taskT,taskN));
-                        //Task.getTask(new Task(taskT,taskN));
+
+
+                        Task.task.add(new Task(taskT,taskN));
+
+                        Intent result = new Intent();
+
+                        setResult(RESULT_OK,result);
+                        finish();
+
                         if(task.isEmpty())
                         {
                             Log.d("noItemList" , "no item added to the arrayList ni the task Creattion Activity");
@@ -152,24 +156,39 @@ public class taskCreationActivity extends AppCompatActivity implements AdapterVi
                         {
                             Log.d("ItemAdded","the item has been added to the arrayLIst from taskCreationActivityClass");
                         }
-                        /*NEW APPROACH HOPEFULLY IT Works*/
-                        //Create the intent
-                        //populate the data from arrayList that just got added
-                        //send it to the fragment
-                        //HOPE THAT IT WORKS SO SOFIANOS GIVE ME FULL CREDIT
-                        //CREATED ON 5/1/2018 AT 2:59PM
-
-                        /*TRYING TO PASS DATA TO THE FRAGMENT*/
-
-                        Intent bussnessActivity = new Intent(getApplicationContext(),MainActivity.class);
-                        bussnessActivity.putExtra("TASK_T", taskT);
-                        bussnessActivity.putExtra("TASK_N", taskN);
-                        startActivity(bussnessActivity);
 
                         break;
 
                     case "Personal":
                         Log.d("Personal case", "Personal case executed");
+
+
+                        taskT = titleTask.getText().toString();
+                        taskN = noteTask.getText().toString();
+
+                        Log.d("taskT", " " + taskT);
+
+                        Log.d("taskN ", " " + taskN);
+
+
+                        //Task.task.add(new Task(taskT,taskN));
+                        PersonalTask.taskPersonal.add(new PersonalTask(taskT,taskN));
+
+                        Intent personalResult = new Intent();
+
+                        setResult(RESULT_OK,personalResult);
+                        finish();
+
+                        if(task.isEmpty())
+                        {
+                            Log.d("noItemList" , "no item added to the arrayList ni the task Creattion Activity from personal Case");
+
+                        }
+                        else
+                        {
+                            Log.d("ItemAdded","the item has been added to the arrayLIst from taskCreationActivityClass from personal Case");
+                        }
+
 
                         break;
 

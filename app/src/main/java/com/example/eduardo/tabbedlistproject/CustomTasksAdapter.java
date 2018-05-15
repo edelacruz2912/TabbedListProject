@@ -46,7 +46,7 @@ public class CustomTasksAdapter extends ArrayAdapter<Task>  {
         //return super.getView(position, convertView, parent);
 
         // Get the data item for this position
-      task = getItem(position);
+        Task task = getItem(position);
 
 
 
@@ -68,7 +68,7 @@ public class CustomTasksAdapter extends ArrayAdapter<Task>  {
                 Log.d("checkBox"  , "checkbox has been clicked" );
                 //int position = (Integer) businessCheckBox.getTag();
                 Log.d("position clicked"  ,  " " + (Integer) businessCheckBox.getTag());
-               //take the selected element and send it to the method that gets triggered when garbage can get executed
+                //take the selected element and send it to the method that gets triggered when garbage can get executed
                 if(isChecked)
                 {
                     Log.d("bolleanChecked"  , "checkBox is check " + businessCheckBox.isChecked() );
@@ -77,7 +77,7 @@ public class CustomTasksAdapter extends ArrayAdapter<Task>  {
 //                    i.putExtra("busnessTab",(Integer) businessCheckBox.getTag());
 //                    context.startActivity(i);
 
-                  // Task.removeTask((Integer) businessCheckBox.getTag());
+                    // Task.removeTask((Integer) businessCheckBox.getTag());
                     //Task.task.remove((Integer) businessCheckBox.getTag());
                     //Intent i = new Intent(context,MainActivity.class);
                     //context.startActivity(i);
@@ -90,7 +90,7 @@ public class CustomTasksAdapter extends ArrayAdapter<Task>  {
                     * */
                     int position = (Integer) buttonView.getTag();
 
-                    //Task task = getItem(position);
+                    Task task = getItem(position);
                     Task.removeTask(task);
                     notifyDataSetChanged();//need to let the UI know
 
