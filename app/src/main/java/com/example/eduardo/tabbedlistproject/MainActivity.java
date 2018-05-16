@@ -5,6 +5,8 @@ import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.provider.MediaStore;
+import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
@@ -36,10 +38,6 @@ public class MainActivity extends AppCompatActivity implements Buseness.OnFragme
 
     Toolbar toolbar;
 
-
-
-
-
     ///TO get data to be able to delete with the garbage can
     PersonalCustomTasksAdapter personalTaskNumber;
 
@@ -50,16 +48,20 @@ public class MainActivity extends AppCompatActivity implements Buseness.OnFragme
     //TaskListOpenHelper = WordLIstOpenHelper
     private TaskListOpenHelper mDB;
 
-
-
     /*Share preference */
-
     Toolbar mToolBar;
 
-    /*Share Preference Button*/
+    /*TabLayout*/
 
-    Button redToolBar;
-    Button greenToolBar;
+    TabLayout tabLayout;
+
+    /*Camara*/
+
+    FloatingActionButton camara;
+
+
+
+
 
 
 
@@ -73,11 +75,9 @@ public class MainActivity extends AppCompatActivity implements Buseness.OnFragme
 
         mDB = new TaskListOpenHelper(this);
 
-
         //////////////////////////
 
         /*Share Preference*/
-
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);//use for the share preference
         setSupportActionBar(toolbar);
@@ -88,15 +88,13 @@ public class MainActivity extends AppCompatActivity implements Buseness.OnFragme
 
         /*Share preference Button*/
 
-        redToolBar = (Button) findViewById(R.id.redColor);
-        greenToolBar = (Button) findViewById(R.id.greenColor);
-
         /*TO CHECK IF ANY COLOR IS SAVE IN ShARE PREFERENCE*/
 
         if(getColor() != getResources().getColor(R.color.colorPrimary))
         {
 
             toolbar.setBackgroundColor(getColor());
+            //tabLayout.setBackgroundColor(getColor());
 
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                 getWindow().setStatusBarColor(getColor());
@@ -104,47 +102,24 @@ public class MainActivity extends AppCompatActivity implements Buseness.OnFragme
 
         }
 
+        ////////CAMARA//////////
 
+        camara = (FloatingActionButton) findViewById(R.id.camera);
 
-        /* Action Listener for the button */
-
-        redToolBar.setOnClickListener(new View.OnClickListener() {
+        camara.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                Log.d(TAG, "onClick: red button works");
-
-                toolbar.setBackgroundColor(getResources().getColor(R.color.colorRed));
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                    getWindow().setStatusBarColor(getResources().getColor(R.color.colorRed));
-                }
-
-                storeColor(getResources().getColor(R.color.colorRed));
-
+                Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                startActivityForResult(intent, 0);
             }
         });
 
-        greenToolBar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Log.d(TAG, "onClick: green button works");
-
-                toolbar.setBackgroundColor(getResources().getColor(R.color.colorGreen));
-
-
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                    getWindow().setStatusBarColor(getResources().getColor(R.color.colorGreen));
-                }
-
-                storeColor(getResources().getColor(R.color.colorGreen));
-
-
-            }
-        });
 
         // Create an instance of the tab layout from the view.
 
-        TabLayout tabLayout = (TabLayout) findViewById(R.id.tab_layout);
+        tabLayout = (TabLayout) findViewById(R.id.tab_layout);
+        tabLayout.setBackgroundColor(getColor());
 
         //Set the text for each tab
         tabLayout.addTab(tabLayout.newTab().setText(R.string.tab_label1));
@@ -242,6 +217,38 @@ public class MainActivity extends AppCompatActivity implements Buseness.OnFragme
 
                 return true;
 
+
+            case R.id.Red:
+
+                Log.d(" RedColor", "Red Color Selected");
+                toolbar.setBackgroundColor(getResources().getColor(R.color.colorRed));
+                tabLayout.setBackgroundColor(getResources().getColor(R.color.colorRed));
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                    getWindow().setStatusBarColor(getResources().getColor(R.color.colorRed));
+                }
+
+                storeColor(getResources().getColor(R.color.colorRed));
+
+
+                break;
+
+
+            case R.id.Green:
+
+                Log.d(" GreeColor", "Green Color Selected");
+                toolbar.setBackgroundColor(getResources().getColor(R.color.colorGreen));
+                tabLayout.setBackgroundColor(getResources().getColor(R.color.colorGreen));
+
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                    getWindow().setStatusBarColor(getResources().getColor(R.color.colorGreen));
+                }
+
+                storeColor(getResources().getColor(R.color.colorGreen));
+
+
+                break;
+
+
             case R.id.deleteSign:
                 Log.d(" Delete sign Selected", "Delete sign Selected");
 
@@ -262,43 +269,11 @@ public class MainActivity extends AppCompatActivity implements Buseness.OnFragme
                 return super.onOptionsItemSelected(item);
 
         }
+
+        return false;
     }
 
-//    @Override
-//    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-//        super.onActivityResult(requestCode, resultCode, data);
-//        if(requestCode==REQ_CODE && resultCode==RESULT_OK){
-//            personalTask=(PersonalTask) data.getSerializableExtra("task");
-//            Personal.newInstance(personalTask);
-//        }
-//    }
 
-//    @Override
-//    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-//        super.onActivityResult(requestCode, resultCode, data);
-//
-//        if (requestCode == WORD_EDIT) {
-//            if (resultCode == RESULT_OK) {
-//                String word = data.getStringExtra(TaskCreationActibity.EXTRA_REPLY);
-//                // Update the database
-//                if (!TextUtils.isEmpty(word)) {
-//                    int id = data.getIntExtra(WordListAdapter.EXTRA_ID, -99);
-//                    if (id == WORD_ADD) {
-//                        mDB.insert(word);
-//                    }
-//                    // Update the UI
-//                    mAdapter.notifyDataSetChanged();
-//                } else {
-//                    Toast.makeText(
-//                            getApplicationContext(),
-//                            R.string.empty_not_saved,
-//                            Toast.LENGTH_LONG).show();
-//                }
-//            }
-//        }
-//
-//
-//    }
 
 
     /*For business Fragment*/

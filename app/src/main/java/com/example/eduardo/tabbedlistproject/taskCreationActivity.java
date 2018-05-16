@@ -90,11 +90,11 @@ public class taskCreationActivity extends AppCompatActivity implements AdapterVi
     public void onItemSelected(AdapterView<?> adapterView, View view, int position, long id) {
 
         // An item was selected. You can retrieve the selected item using
-       SpinnerItem = adapterView.getItemAtPosition(position);
+        SpinnerItem = adapterView.getItemAtPosition(position);
 
         Log.i("selected from spinner" , " " +  adapterView.getItemAtPosition(position));
 
-        }
+    }
 
 
 
@@ -207,7 +207,8 @@ public class taskCreationActivity extends AppCompatActivity implements AdapterVi
                 Log.d(" DeleteButton", "DelteBUtton triggered");
                 //Send you to main Activity if button declined from creation of task is clicked
                 Intent intentToMainActivity = new Intent(this, MainActivity.class);
-                startActivity(intentToMainActivity);
+               // startActivity(intentToMainActivity);
+                startActivityForResult(intentToMainActivity,1);
 
                 return true;
 

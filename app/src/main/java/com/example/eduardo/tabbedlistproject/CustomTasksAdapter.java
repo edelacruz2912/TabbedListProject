@@ -72,22 +72,7 @@ public class CustomTasksAdapter extends ArrayAdapter<Task>  {
                 if(isChecked)
                 {
                     Log.d("bolleanChecked"  , "checkBox is check " + businessCheckBox.isChecked() );
-                    //if it is true take view and send it to the delete Button
-//                    Intent i = new Intent(context,MainActivity.class);
-//                    i.putExtra("busnessTab",(Integer) businessCheckBox.getTag());
-//                    context.startActivity(i);
 
-                    // Task.removeTask((Integer) businessCheckBox.getTag());
-                    //Task.task.remove((Integer) businessCheckBox.getTag());
-                    //Intent i = new Intent(context,MainActivity.class);
-                    //context.startActivity(i);
-
-                    /*TO ASK SOFIANOS*/
-                    /*
-                    * WHEN CHECKBOX IS CLICKED TO ERASE THE ELEMENT
-                    * ONCE I CALL REMOVE method from arraylist how can re render the listview so it doesnt appear
-                    *
-                    * */
                     int position = (Integer) buttonView.getTag();
 
                     Task task = getItem(position);

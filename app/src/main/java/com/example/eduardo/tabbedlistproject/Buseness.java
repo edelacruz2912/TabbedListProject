@@ -89,7 +89,7 @@ public class Buseness extends Fragment implements AdapterView.OnItemClickListene
             view.refreshDrawableState();
 
         }
-         // Attach the adapter to a ListView
+        // Attach the adapter to a ListView
         listView.setAdapter(businessAdapter);
         businessAdapter.notifyDataSetChanged();
 

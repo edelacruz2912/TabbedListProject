@@ -18,4 +18,21 @@
         android:titleCondensed="Plus button"
         app:showAsAction="always" />
 
+
+    <item
+        android:title="Red"
+        android:id="@+id/Red"
+        android:orderInCategory="2"
+        android:titleCondensed="Change color"
+        app:showAsAction="never"
+        />
+
+    <item
+        android:title="Green"
+        android:id="@+id/Green"
+        android:orderInCategory="3"
+        android:titleCondensed="Change color"
+        app:showAsAction="never"
+        />
+
 </menu>

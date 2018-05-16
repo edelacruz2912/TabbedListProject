@@ -31,27 +31,16 @@
         android:layout_height="fill_parent"
         android:layout_below="@id/tab_layout"/>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginLeft="50dp"
-        android:layout_marginTop="600dp"
-        android:layout_marginStart="50dp">
-
-    <Button
-        android:id="@+id/redColor"
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/camera"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Red"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="15dp"
+        android:src="@drawable/ic_white_camera"
         />
-    <Button
-        android:id="@+id/greenColor"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Green"/>
 
-    </LinearLayout>
+
 
 
 </RelativeLayout>
